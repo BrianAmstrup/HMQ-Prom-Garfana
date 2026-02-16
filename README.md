@@ -50,7 +50,9 @@ mqtt sub -t "#"
 
 
 
-![](assets/20260216_174300_Scherm_afbeelding 2026-02-16 om 17.42.27.png)
+![](assets/20260216_174553_screen.png)
+
+screendump
 
 ### Grafana query used by sensor graph:
 
