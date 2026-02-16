@@ -13,7 +13,8 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 2. [HiveMQ Control Center](http://localhost:8080) (cc-admin / cc-password)
 3. MQTT broker: `tcp://localhost:1883` (full control: superuser / admin)
 4. [Prometheus](http://localhost:9090)
-5. [Grafana](http://localhost:3000/d/adz87kc/sensor-dashboard-v1?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s) (admin/admin)
+5. [Grafana sensor](http://localhost:3000/d/adz87kc/sensor-dashboard-v1?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s) (admin/admin)
+6. [Grafana HiveMQ metrics](http://localhost:3000/d/8912167a-09ef-4320-9716-f27842f7b88f/hivemq-platform-prometheus?orgId=1&from=now-30m&to=now&timezone=browser&var-Prometheus=PBFA97CFB590B2093&var-intervalSeconds=30&var-Route=total&refresh=5s) (admin/admin)
 
 ### for more info see:
 
@@ -47,10 +48,10 @@ mqtt sub -t "#"
 ##### TLS test (file based auth)
 
 `mqtt test  -h localhost  -p 8883  --secure  --cafile hivemq.crt  -u superuser -pw admin                                                 `
+
 ### Grafana query used by sensor graph:
 
 ![](assets/20260216_174553_screen.png)
-
 
 `SELECT isotime AS "time",      -- Time column for X-axis temperature AS "value"  -- Value column for Y-axis FROM tempdata ORDER BY isotime ASC;`
 
