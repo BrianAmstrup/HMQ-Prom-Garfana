@@ -13,7 +13,7 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 2. [HiveMQ Control Center](http://localhost:8080) (cc-admin / cc-password)
 3. MQTT broker: `tcp://localhost:1883` (full control: superuser / admin)
 4. [Prometheus](http://localhost:9090)
-5. [Grafana](http://localhost:3000) (admin/admin)
+5. [Grafana](http://localhost:3000/d/adz87kc/sensor-dashboard-v1?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s) (admin/admin)
 
 https://www.hivemq.com/blog/visualizing-hivemq-cluster-and-node-metrics-grafana/
 https://github.com/hivemq/hivemq-grafana-dashboards
