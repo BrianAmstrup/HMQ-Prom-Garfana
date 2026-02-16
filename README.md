@@ -10,10 +10,10 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 
 ### Access:
 
-2. HiveMQ Control Center: [http://localhost:8080](https://) (cc-admin / cc-password)
+2. [HiveMQ Control Center](https://http://localhost:8080) (cc-admin / cc-password)
 3. MQTT broker: `tcp://localhost:1883` (full control: superuser / admin)
-4. Prometheus: [http://localhost:9090](https://)
-5. Grafana: [http://localhost:3000](https://) (admin/admin)
+4. [Prometheus](https://http://localhost:9090)
+5. [Grafana](https://http://localhost:3000) (admin/admin)
 
 https://www.hivemq.com/blog/visualizing-hivemq-cluster-and-node-metrics-grafana/
 https://github.com/hivemq/hivemq-grafana-dashboards
