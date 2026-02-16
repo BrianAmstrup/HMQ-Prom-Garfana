@@ -47,14 +47,10 @@ mqtt sub -t "#"
 ##### TLS test (file based auth)
 
 `mqtt test  -h localhost  -p 8883  --secure  --cafile hivemq.crt  -u superuser -pw admin                                                 `
-
-
+### Grafana query used by sensor graph:
 
 ![](assets/20260216_174553_screen.png)
 
-screendump
-
-### Grafana query used by sensor graph:
 
 `SELECT isotime AS "time",      -- Time column for X-axis temperature AS "value"  -- Value column for Y-axis FROM tempdata ORDER BY isotime ASC;`
 
