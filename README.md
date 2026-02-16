@@ -29,6 +29,20 @@ The local Postgres database is used as both security provider for the ESE extent
 On Docker host `postgres` on port `5432`, in database `mydb` with username `myuser` and as password `mypassword`.
 See tables `tempdata` and `users`
 
+The HiveMQ Postgres extention uses a external SQL command file containging the Postgres directly insert method with JSON decoding:
+
+```INSERT INTO tempdata (sensorid,isotime, unixtime, temperature)
+SELECT
+json_data->>'SensorID' AS sensorid,
+(json_data->>'isotime'):: timestamp AS isotime,
+(json_data->>'unixtime')::numeric AS isotime,
+(json_data->>'temperature')::numeric AS temperature /* casting from text to numic value ! */
+FROM (
+VALUES
+( ${mqtt-payload-utf8}::jsonb)
+) AS input(json_data);
+```
+
 ### Check MQTT on CLI
 
 [mqtt](https://github.com/hivemq/mqtt-cli) sub -t "#"
