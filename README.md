@@ -15,9 +15,19 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 4. [Prometheus](http://localhost:9090)
 5. [Grafana](http://localhost:3000/d/adz87kc/sensor-dashboard-v1?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s) (admin/admin)
 
+### for more info see:
+
 https://www.hivemq.com/blog/visualizing-hivemq-cluster-and-node-metrics-grafana/
 https://github.com/hivemq/hivemq-grafana-dashboards
 https://docs.hivemq.com/hivemq-enterprise-security-extension/latest/getting-started.html#getting-started-with-sql-databases
+
+### Local database
+
+The local database is used as both security provider for the ESE extention as for timeseries data storage.
+
+On Docker host `postgres` on port `5432`. In database `mydb` with username `myuser` and as password `mypassword`.
+See tables `tempdata` and `users`
+
 
 ### Check MQTT on CLI
 
