@@ -29,9 +29,10 @@ The local Postgres database is used as both security provider for the ESE extent
 On Docker host `postgres` on port `5432`, in database `mydb` with username `myuser` and as password `mypassword`.
 See tables `tempdata` and `users`
 
-The HiveMQ Postgres extention uses a external SQL command file containging the Postgres directly insert method with JSON decoding:
+The HiveMQ Postgres extention uses a external SQL command file containing the Postgres directly insert method with JSON decoding:
 
-```INSERT INTO tempdata (sensorid,isotime, unixtime, temperature)
+```
+INSERT INTO tempdata (sensorid,isotime, unixtime, temperature)
 SELECT
 json_data->>'SensorID' AS sensorid,
 (json_data->>'isotime'):: timestamp AS isotime,
