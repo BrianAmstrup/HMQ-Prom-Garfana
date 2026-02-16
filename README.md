@@ -23,11 +23,10 @@ https://docs.hivemq.com/hivemq-enterprise-security-extension/latest/getting-star
 
 ### Local database
 
-The local database is used as both security provider for the ESE extention as for timeseries data storage.
+The local Postgres database is used as both security provider for the ESE extention as for timeseries data storage.
 
-On Docker host `postgres` on port `5432`. In database `mydb` with username `myuser` and as password `mypassword`.
+On Docker host `postgres` on port `5432`, in database `mydb` with username `myuser` and as password `mypassword`.
 See tables `tempdata` and `users`
-
 
 ### Check MQTT on CLI
 
@@ -48,6 +47,10 @@ mqtt sub -t "#"
 ##### TLS test (file based auth)
 
 `mqtt test  -h localhost  -p 8883  --secure  --cafile hivemq.crt  -u superuser -pw admin                                                 `
+
+
+
+![](assets/20260216_174300_Scherm_afbeelding 2026-02-16 om 17.42.27.png)
 
 ### Grafana query used by sensor graph:
 
