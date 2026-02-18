@@ -1,0 +1,16 @@
+ # ------------------------------------------------------------------------------------
+  # HiveMQ Edge
+  # docker run --name hivemq-edge -e HIVEMQ_LOG_LEVEL=INFO -d -p 1883:1883 -p 8080:8080 hivemq/hivemq-edge
+  # ------------------------------------------------------------------------------------
+  hivemq-edge:
+    image: hivemq/hivemq-edge
+    restart: always
+    ports:
+       - 1883:1883                     # MQTT/TCP protocol port
+       - 2080:8080                     # HiveMQ Edge port
+    #   - 2442:2442                     # MQTTSN
+
+
+
+
+docker run --name hivemq-edge -e HIVEMQ_LOG_LEVEL=INFO -d -p 1883:1883 -p 2080:8080 hivemq/hivemq-edge

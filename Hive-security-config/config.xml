@@ -43,7 +43,7 @@
             </file-authorization-manager>
         </listener-pipeline>
 
-         <!-- secure access to the mqtt broker -->
+        <!-- secure access to the mqtt broker -->
         <listener-pipeline listener="TLS-listener">
             <!-- authenticate over a file -->
             <file-authentication-manager>

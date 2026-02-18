@@ -66,11 +66,12 @@ services:
     image: hivemq/hivemq-edge:2026.1
     container_name: hivemq-edge
     ports:
-      - "2883:1883"    # MQTT
-      - "2080:8080"    # HiveMQ Control Center
-      - "2888:8888"    # HiveMQ API
-    # volumes:
-      # - ./hivemq-data:/opt/hivemq/data
+       - 2883:1883                     # MQTT/TCP protocol port
+       - 2080:8080                     # HiveMQ Edge port
+    #  - 2442:2442                     # MQTTSN
+       - 2888:8888    # HiveMQ API
+    volumes:
+       - ./Hive-edge-config:/opt/hivemq/conf
     environment:
       HIVEMQ_LICENSE: ""
     restart: unless-stopped

@@ -32,6 +32,18 @@
             </user>
 
             <user>
+                <name>edge-bridge</name>
+                <password>edge-bridge</password>
+                <permissions>
+                    <permission>
+                        <topic>edge/#</topic>
+                        <qos>ALL</qos>
+                        <activity>PUBLISH</activity>
+                    </permission>
+                </permissions>
+            </user>
+
+            <user>
                 <name>mqtt-user-2</name>
                 <!-- <password>mqtt-password-2</password> -->
                 <!-- https://docs.hivemq.com/ese/latest/enterprise-security-extension/ese-helper.html#hash -->

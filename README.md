@@ -46,6 +46,9 @@ VALUES
 
 ### Check MQTT on CLI
 
+test all:
+[mqtt](https://github.com/hivemq/mqtt-cli) test  -u superuser -pw admin -p 1883 (with security enabled)
+
 [mqtt](https://github.com/hivemq/mqtt-cli) sub -t "#"
 
 ### example JSON value as published by simulator
@@ -74,3 +77,14 @@ VALUES
 
 ✅ Successfully published to 'sensors/temperature': {"temperature": 29.48, "isotime": "2026-02-16T16:59:07.164Z", "SensorID": "TempSimulator", "unixtime": 1771261147164}
 
+
+
+
+
+===== scratch zone =====
+
+send message to edge broker:
+mqtt pub -h 127.0.0.1 -p 2883 -t test -m kamielisgek123     
+
+monitor code broker:
+mqtt sub -t "#"  -u superuser -pw admin -p 1883
