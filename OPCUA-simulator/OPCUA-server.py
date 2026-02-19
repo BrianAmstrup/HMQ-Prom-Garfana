@@ -5,6 +5,8 @@ Date: 2023-03-29
 
 https://github.com/manoelfranklins/my-opcua-python-server/blob/main/myopcua.py
 
+Discovering Servers, EndpointUrl: opc.tcp://172.19.0.9:4841/freeopcua/server/
+
 
 Description:
 This script creates an OPC UA server that simulates multiple equipment nodes
@@ -78,8 +80,14 @@ if __name__ == "__main__":
         equipment_name = f"Equipment_{i + 1}"
         equipments[equipment_name] = create_equipment_node(simulated_data_node, equipment_name, idx)
 
+
+    server.set_security_policy([ua.SecurityPolicyType.NoSecurity])
+    # server.set_endpoint(f"opc.tcp://{IPAddr}:4841/freeopcua/server/")
+    print("Security policy set to NoSecurity")
+
     # Start the server
     server.start()
+    print("OPC UA Server started at {}".format(server.endpoint))
 
     try:
         # Main loop to continuously update the variables with new simulated data

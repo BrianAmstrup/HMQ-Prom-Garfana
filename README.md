@@ -16,8 +16,7 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 5. [Grafana sensor](http://localhost:3000/d/adz87kc/sensor-dashboard-v1?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s) (admin/admin)
 6. [Grafana HiveMQ metrics](http://localhost:3000/d/8912167a-09ef-4320-9716-f27842f7b88f/hivemq-platform-prometheus?orgId=1&from=now-30m&to=now&timezone=browser&var-Prometheus=PBFA97CFB590B2093&var-intervalSeconds=30&var-Route=total&refresh=5s) (admin/admin)
 7. [Edge Gui](http://127.0.0.1:2080/app/login)
-
-
+8. [OPC-UA browser](http://127.0.0.1:2304/)
 
 ### for more info see:
 

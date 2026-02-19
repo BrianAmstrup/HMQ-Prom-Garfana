@@ -182,18 +182,34 @@
             <protocolId>simulation</protocolId>
             <configVersion>1</configVersion>
             <config>
-                <minDelay>0</minDelay>
-                <maxDelay>0</maxDelay>
                 <minValue>0</minValue>
                 <maxValue>1000</maxValue>
                 <simulationToMqtt>
-                    <pollingIntervalMillis>1000</pollingIntervalMillis>
                     <maxPollingErrorsBeforeRemoval>10</maxPollingErrorsBeforeRemoval>
+                    <pollingIntervalMillis>10000</pollingIntervalMillis>
                 </simulationToMqtt>
+                <minDelay>0</minDelay>
+                <maxDelay>0</maxDelay>
                 <id>sim-2</id>
             </config>
-            <tags/>
-            <northboundMappings/>
+            <tags>
+                <tag>
+                    <name>simtag-1</name>
+                    <description>sim-tag 1</description>
+                    <definition/>
+                </tag>
+            </tags>
+            <northboundMappings>
+                <northboundMapping>
+                    <tagName>simtag-1</tagName>
+                    <topic>simtag-1</topic>
+                    <maxQos>0</maxQos>
+                    <includeTagNames>false</includeTagNames>
+                    <includeTimestamp>true</includeTimestamp>
+                    <mqttUserProperties/>
+                    <messageExpiryInterval>9223372036854775807</messageExpiryInterval>
+                </northboundMapping>
+            </northboundMappings>
             <southboundMappings/>
         </protocol-adapter>
     </protocol-adapters>

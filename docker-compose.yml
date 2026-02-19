@@ -147,6 +147,26 @@ services:
     restart: unless-stopped
 
 
+  OPCUA-browser:
+    image: iotechsys/opc-ua-browser
+    container_name: opcua-browser
+    depends_on:
+      - hivemq
+    environment:
+      PYTHONUNBUFFERED: 1
+    command: >
+      sh -c "pip install --upgrade pip &&pip install opcua --root-user-action=ignore &&
+             python3 /app/OPCUA-server.py"
+    volumes:
+      - ./OPCUA_Browser:/data 
+    ports:
+      - "2304:8080"
+    restart: unless-stopped
+
+
+
+
+# docker run -d -v <your_data_path>:/data --name opc-ua-browser -p 8080:8080 iotechsys/opc-ua-browser
 
 volumes:
   postgres_data:

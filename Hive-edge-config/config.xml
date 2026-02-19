@@ -212,6 +212,42 @@
             </northboundMappings>
             <southboundMappings/>
         </protocol-adapter>
+        <protocol-adapter>
+            <adapterId>local_OPC_server</adapterId>
+            <protocolId>opcua</protocolId>
+            <configVersion>1</configVersion>
+            <config>
+                <connectionOptions>
+                    <autoReconnect>true</autoReconnect>
+                    <connectionTimeoutMs>30000</connectionTimeoutMs>
+                    <healthCheckIntervalMs>30000</healthCheckIntervalMs>
+                    <keepAliveFailuresAllowed>3</keepAliveFailuresAllowed>
+                    <keepAliveIntervalMs>10000</keepAliveIntervalMs>
+                    <reconnectOnServiceFault>true</reconnectOnServiceFault>
+                    <requestTimeoutMs>30000</requestTimeoutMs>
+                    <retryIntervalMs>1000,2000,4000,8000,16000,32000,64000,128000,256000,300000</retryIntervalMs>
+                    <sessionTimeoutMs>120000</sessionTimeoutMs>
+                </connectionOptions>
+                <opcuaToMqtt>
+                    <publishingInterval>1000</publishingInterval>
+                    <serverQueueSize>1</serverQueueSize>
+                </opcuaToMqtt>
+                <overrideUri>true</overrideUri>
+                <security>
+                    <messageSecurityMode>NONE</messageSecurityMode>
+                    <policy>NONE</policy>
+                </security>
+                <tls>
+                    <enabled>false</enabled>
+                    <tlsChecks>STANDARD</tlsChecks>
+                </tls>
+                <uri>opc.tcp://opcua-simulator:4841/freeopcua/server/</uri>
+                <id>local_OPC_server</id>
+            </config>
+            <tags/>
+            <northboundMappings/>
+            <southboundMappings/>
+        </protocol-adapter>
     </protocol-adapters>
     <data-combiners/>
     <asset-mappers/>
