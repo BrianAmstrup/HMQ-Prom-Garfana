@@ -15,6 +15,9 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 4. [Prometheus](http://localhost:9090)
 5. [Grafana sensor](http://localhost:3000/d/adz87kc/sensor-dashboard-v1?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s) (admin/admin)
 6. [Grafana HiveMQ metrics](http://localhost:3000/d/8912167a-09ef-4320-9716-f27842f7b88f/hivemq-platform-prometheus?orgId=1&from=now-30m&to=now&timezone=browser&var-Prometheus=PBFA97CFB590B2093&var-intervalSeconds=30&var-Route=total&refresh=5s) (admin/admin)
+7. [Edge Gui](http://127.0.0.1:2080/app/login)
+
+
 
 ### for more info see:
 
@@ -77,14 +80,11 @@ test all:
 
 ✅ Successfully published to 'sensors/temperature': {"temperature": 29.48, "isotime": "2026-02-16T16:59:07.164Z", "SensorID": "TempSimulator", "unixtime": 1771261147164}
 
-
-
-
-
 ===== scratch zone =====
 
 send message to edge broker:
-mqtt pub -h 127.0.0.1 -p 2883 -t test -m kamielisgek123     
+mqtt pub -h 127.0.0.1 -p 2883 -t test -m kamielisgek123
 
 monitor code broker:
 mqtt sub -t "#"  -u superuser -pw admin -p 1883
+
