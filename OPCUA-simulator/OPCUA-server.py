@@ -97,7 +97,7 @@ if __name__ == "__main__":
                 for tag_name, value in data.items():
                     tags[tag_name].set_value(value)
 
-            time.sleep(1)
+            time.sleep(5)
     finally:
         # Close the server when exiting
         server.stop()
