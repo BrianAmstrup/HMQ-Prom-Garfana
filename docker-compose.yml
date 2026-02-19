@@ -129,6 +129,25 @@ services:
       - ./temp-simulator:/app
     restart: unless-stopped
 
+
+  OPCUA-simulator:
+    image: python:3.12-slim
+    container_name: opcua-simulator
+    depends_on:
+      - hivemq
+    environment:
+      PYTHONUNBUFFERED: 1
+    command: >
+      sh -c "pip install --upgrade pip &&pip install opcua --root-user-action=ignore &&
+             python3 /app/OPCUA-server.py"
+    volumes:
+      - ./OPCUA-simulator:/app
+    ports:
+      - "4841:4841"
+    restart: unless-stopped
+
+
+
 volumes:
   postgres_data:
   grafana-storage:
