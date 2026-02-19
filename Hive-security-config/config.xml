@@ -31,6 +31,9 @@
 
     <pipelines>
        
+
+
+        
         <!-- secure access to the mqtt broker -->
         <listener-pipeline listener="open-world-listener">
             <!-- authenticate over a file -->
