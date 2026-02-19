@@ -101,7 +101,45 @@
     <persistence>
         <mode>in-memory</mode>
     </persistence>
-    <mqtt-bridges/>
+    <mqtt-bridges>
+        <mqtt-bridge>
+            <id>Edge2core</id>
+            <remote-broker>
+                <port>1883</port>
+                <host>hivemq</host>
+                <mqtt>
+                    <client-id>edge</client-id>
+                    <clean-start>true</clean-start>
+                    <session-expiry>3600</session-expiry>
+                    <keep-alive>60</keep-alive>
+                </mqtt>
+                <authentication>
+                    <mqtt-simple-authentication>
+                        <username>edge-bridge</username>
+                        <password>edge-bridge</password>
+                    </mqtt-simple-authentication>
+                </authentication>
+            </remote-broker>
+            <remote-subscriptions/>
+            <forwarded-topics>
+                <forwarded-topic>
+                    <filters>
+                        <mqtt-topic-filter>#</mqtt-topic-filter>
+                    </filters>
+                    <max-qos>0</max-qos>
+                    <preserve-retain>false</preserve-retain>
+                    <destination>edge/Amsterdam/{#}</destination>
+                    <custom-user-properties/>
+                    <excludes/>
+                </forwarded-topic>
+            </forwarded-topics>
+            <loop-prevention>
+                <enabled>true</enabled>
+                <hop-count-limit>1</hop-count-limit>
+            </loop-prevention>
+            <persist>true</persist>
+        </mqtt-bridge>
+    </mqtt-bridges>
     <admin-api>
         <enabled>true</enabled>
         <listeners>
@@ -215,6 +253,13 @@
                         <node>ns=2;i=11</node>
                     </definition>
                 </tag>
+                <tag>
+                    <name>equi4_volt</name>
+                    <description>Equipment 4, it's voltage</description>
+                    <definition>
+                        <node>ns=2;i=32</node>
+                    </definition>
+                </tag>
             </tags>
             <northboundMappings>
                 <northboundMapping>
@@ -225,6 +270,15 @@
                     <includeTimestamp>true</includeTimestamp>
                     <mqttUserProperties/>
                     <messageExpiryInterval>9007199254740991</messageExpiryInterval>
+                </northboundMapping>
+                <northboundMapping>
+                    <tagName>equi4_volt</tagName>
+                    <topic>Equipment4/Voltage</topic>
+                    <maxQos>0</maxQos>
+                    <includeTagNames>false</includeTagNames>
+                    <includeTimestamp>true</includeTimestamp>
+                    <mqttUserProperties/>
+                    <messageExpiryInterval>9223372036854775807</messageExpiryInterval>
                 </northboundMapping>
             </northboundMappings>
             <southboundMappings/>

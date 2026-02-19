@@ -128,7 +128,7 @@
                     </filters>
                     <max-qos>0</max-qos>
                     <preserve-retain>false</preserve-retain>
-                    <destination>edge/{#}</destination>
+                    <destination>edge/Amsterdam/{#}</destination>
                     <custom-user-properties/>
                     <excludes/>
                 </forwarded-topic>
@@ -253,6 +253,13 @@
                         <node>ns=2;i=11</node>
                     </definition>
                 </tag>
+                <tag>
+                    <name>equi4_volt</name>
+                    <description>Equipment 4, it's voltage</description>
+                    <definition>
+                        <node>ns=2;i=32</node>
+                    </definition>
+                </tag>
             </tags>
             <northboundMappings>
                 <northboundMapping>
@@ -264,11 +271,64 @@
                     <mqttUserProperties/>
                     <messageExpiryInterval>9007199254740991</messageExpiryInterval>
                 </northboundMapping>
+                <northboundMapping>
+                    <tagName>equi4_volt</tagName>
+                    <topic>Equipment-4/Voltage</topic>
+                    <maxQos>0</maxQos>
+                    <includeTagNames>false</includeTagNames>
+                    <includeTimestamp>true</includeTimestamp>
+                    <mqttUserProperties/>
+                    <messageExpiryInterval>9007199254740991</messageExpiryInterval>
+                </northboundMapping>
             </northboundMappings>
             <southboundMappings/>
         </protocol-adapter>
     </protocol-adapters>
-    <data-combiners/>
+    <data-combiners>
+        <data-combiner>
+            <id>9c987b5e-5801-422b-ad92-3efb85b0b6bc</id>
+            <name>2-4combi</name>
+            <entity-references>
+                <entity-reference>
+                    <type>ADAPTER</type>
+                    <id>local_OPC_server</id>
+                </entity-reference>
+                <entity-reference>
+                    <type>EDGE_BROKER</type>
+                    <id>edge</id>
+                </entity-reference>
+            </entity-references>
+            <data-combinings>
+                <data-combining>
+                    <id>44dfe26b-7635-40c4-a0d2-90858971b39d</id>
+                    <sources>
+                        <primary-reference>
+                            <id>equip2_temp</id>
+                            <type>TAG</type>
+                        </primary-reference>
+                        <tags>
+                            <tag>equip2_temp</tag>
+                        </tags>
+                        <topic-filters/>
+                    </sources>
+                    <destination>
+                        <topic>combined</topic>
+                        <schema>data:application/json;base64,eyJ0aXRsZSI6Ik9QQ1VBL01RVFQgY29tYmluZWQgc2NoZW1hIiwidHlwZSI6Im9iamVjdCIsImRlc2NyaXB0aW9uIjoiVGhpcyBpcyBnZW5lcmF0ZWQgZnJvbSB0aGUgRWRnZSBkYXRhIGNvbWJpbmVyIiwicHJvcGVydGllcyI6eyJ0ZzBfdmFsdWUiOnsidHlwZSI6ImludGVnZXIiLCJ0aXRsZSI6InRnMF92YWx1ZSIsIm1pbmltdW0iOi05MjIzMzcyMDM2ODU0Nzc2MDAwLCJtYXhpbXVtIjo5MjIzMzcyMDM2ODU0Nzc2MDAwLCJtZXRhZGF0YSI6eyJpZCI6ImVxdWlwMl90ZW1wIiwidHlwZSI6IlRBRyIsImFkYXB0ZXJJZCI6ImxvY2FsX09QQ19zZXJ2ZXIiLCJzY2hlbWEiOnsic2NoZW1hIjp7IiRzY2hlbWEiOiJodHRwczovL2pzb24tc2NoZW1hLm9yZy9kcmFmdC8yMDE5LTA5L3NjaGVtYSIsInRpdGxlIjoiSW50NjQgSnNvblNjaGVtYSIsInR5cGUiOiJvYmplY3QiLCJwcm9wZXJ0aWVzIjp7InZhbHVlIjp7InR5cGUiOiJpbnRlZ2VyIiwibWluaW11bSI6LTkyMjMzNzIwMzY4NTQ3NzYwMDAsIm1heGltdW0iOjkyMjMzNzIwMzY4NTQ3NzYwMDB9fSwicmVxdWlyZWQiOlsidmFsdWUiXX0sInN0YXR1cyI6InN1Y2Nlc3MiLCJtZXNzYWdlIjoiWW91ciB0YWcgaXMgY3VycmVudGx5IGFzc2lnbmVkIGEgdmFsaWQgc2NoZW1hIn19fX19</schema>
+                    </destination>
+                    <instructions>
+                        <instruction>
+                            <source>$.value</source>
+                            <destination>$.tg0_value</destination>
+                            <origin>
+                                <id>equip2_temp</id>
+                                <type>TAG</type>
+                            </origin>
+                        </instruction>
+                    </instructions>
+                </data-combining>
+            </data-combinings>
+        </data-combiner>
+    </data-combiners>
     <asset-mappers/>
     <pulse>
         <managed-assets/>

@@ -128,7 +128,7 @@
                     </filters>
                     <max-qos>0</max-qos>
                     <preserve-retain>false</preserve-retain>
-                    <destination>edge-Amsterdam/{#}</destination>
+                    <destination>edge/Amsterdam/{#}</destination>
                     <custom-user-properties/>
                     <excludes/>
                 </forwarded-topic>
@@ -253,6 +253,13 @@
                         <node>ns=2;i=11</node>
                     </definition>
                 </tag>
+                <tag>
+                    <name>equi4_volt</name>
+                    <description>Equipment 4, it's voltage</description>
+                    <definition>
+                        <node>ns=2;i=32</node>
+                    </definition>
+                </tag>
             </tags>
             <northboundMappings>
                 <northboundMapping>
@@ -260,6 +267,15 @@
                     <topic>Equipment-2/Temperature</topic>
                     <maxQos>0</maxQos>
                     <includeTagNames>true</includeTagNames>
+                    <includeTimestamp>true</includeTimestamp>
+                    <mqttUserProperties/>
+                    <messageExpiryInterval>9007199254740991</messageExpiryInterval>
+                </northboundMapping>
+                <northboundMapping>
+                    <tagName>equi4_volt</tagName>
+                    <topic>Equipment-4/Voltage</topic>
+                    <maxQos>0</maxQos>
+                    <includeTagNames>false</includeTagNames>
                     <includeTimestamp>true</includeTimestamp>
                     <mqttUserProperties/>
                     <messageExpiryInterval>9007199254740991</messageExpiryInterval>
