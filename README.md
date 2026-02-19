@@ -87,6 +87,8 @@ test all:
 send message to edge broker:
 mqtt pub -h 127.0.0.1 -p 2883 -t test -m kamielisgek123
 
-monitor code broker:
+monitor core broker:
 mqtt sub -t "#"  -u superuser -pw admin -p 1883
 
+monitor edge on MQTT:
+mqtt sub -t "#" -p 2883
