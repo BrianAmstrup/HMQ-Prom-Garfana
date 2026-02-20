@@ -12,9 +12,9 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 
 ### What you get
 
+![](assets/20260220_155445_dia.png)
 
-
-![](assets/20260220_155445_Diagram_zonder titel.drawio.png)
+![](assets/20260216_174553_screen.png)
 
 ### Access:
 
