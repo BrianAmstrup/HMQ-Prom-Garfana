@@ -1,6 +1,5 @@
 # HiveMQ + Prometheus + Grafana stack
 
-
 ~/Documents/Testing/HMQ-Prom-Garfana
 
 ### Notice:
@@ -10,6 +9,12 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 ### How to run:
 
 ```docker compose up -d```
+
+### What you get
+
+
+
+![](assets/20260220_155445_Diagram_zonder titel.drawio.png)
 
 ### Access:
 
@@ -92,3 +97,4 @@ mqtt sub -t "#"  -u superuser -pw admin -p 1883 -J | jq
 
 monitor edge on MQTT:
 mqtt sub -t "#"   -p 2883 -J  | jq
+
