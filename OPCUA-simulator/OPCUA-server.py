@@ -1,7 +1,5 @@
 """
 OPC UA Python Server with Simulated Data
-Author: Manoel Costa
-Date: 2023-03-29
 
 https://github.com/manoelfranklins/my-opcua-python-server/blob/main/myopcua.py
 
@@ -10,22 +8,11 @@ Discovering Servers, EndpointUrl: opc.tcp://172.19.0.9:4841/freeopcua/server/
 
 Description:
 This script creates an OPC UA server that simulates multiple equipment nodes
-with tags for temperature, pressure, torque, humidity, light, voltage, and watts.
+with tags for temperature, pressure, torque, humidity, light, voltage and watts.
 Each equipment node contains its own set of tags, and the values are continuously
 updated with random simulated data.
-
-Prerequisites:
-- Python 3.6 or higher
-- Install the "opcua" library using pip: pip install opcua
-
-Instructions:
-1. Make sure you have installed the required library.
-2. Update the server endpoint, namespace, and other settings in the script, if necessary.
-3. Run the script: python opcua_server.py
-4. The server will start, and you can connect to it using an OPC UA client.
 """
 
-# myopcua.py
 
 # Required imports
 import sys
