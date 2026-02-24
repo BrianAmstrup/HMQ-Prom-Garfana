@@ -63,7 +63,9 @@ services:
 
 
   hivemqedge:
-    image: hivemq/hivemq-edge:2026.1
+    image: hivemq/hivemq-edge:2026.3
+    #image: hivemq/hivemq-edge:latest
+
     container_name: hivemq-edge
     ports:
        - 2883:1883                     # MQTT/TCP protocol port

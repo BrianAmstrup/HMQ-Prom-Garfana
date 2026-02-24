@@ -71,4 +71,16 @@
         <enabled>false</enabled>
     </anonymous-usage-statistics>
 
+
+    <health-api>
+        <enabled>true</enabled>
+        <listeners>
+        <http>
+            <port>8889</port>
+            <name>health-api-listener</name>
+            <bind-address>127.0.0.1</bind-address>
+        </http>
+        </listeners>
+  </health-api>
+
 </hivemq>
