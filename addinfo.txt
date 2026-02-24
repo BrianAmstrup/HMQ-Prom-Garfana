@@ -1,3 +1,7 @@
  cd Add-broker-time-context-1.0.0
 > zip -r ../Add_time_context-1.0.0.module .
 
+docker compose up -d --pull always --force-recreate
+
+tip:
+https://github.com/hivemq/Orange_Workshop
