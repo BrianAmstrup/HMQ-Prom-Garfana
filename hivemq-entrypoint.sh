@@ -19,17 +19,10 @@ echo "✅ Allow all is disabled !"
 
 # Start HiveMQ
 echo "🚀 Starting HiveMQ..."
-
-#exec /opt/hivemq/bin/run.sh
-#echo "🚀 Enabling Datahub"
-#curl  -X POST localhost:8888/api/v1/data-hub/management/start-trial
-
-
 /opt/hivemq/bin/run.sh &
 
 
 echo "\r\r 🚀Probing Hive healthprobe .... \r"
-
 # wait until API is ready
 until curl -s --fail localhost:8889/api/v1/health/; do
   sleep 2

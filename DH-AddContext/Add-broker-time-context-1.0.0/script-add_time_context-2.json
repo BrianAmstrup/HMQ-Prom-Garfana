@@ -1,9 +1,0 @@
-#set( $script = "#include('script-add_time_context-2-source.js')")
-{
-  "id" : "${instanceId}-add_time_context-2",
-  "version" : 1,
-  "createdAt" : "2026-02-24T15:14:39.855Z",
-  "description" : "add_time_context with broker time",
-  "functionType" : "TRANSFORMATION",
-  "source" : "$base64.encode($script)"
-}

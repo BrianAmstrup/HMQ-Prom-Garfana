@@ -1,8 +1,0 @@
-#set( $schema = "#include('schema-Sensor-schema-1-definition.json')")
-{
-  "id" : "${instanceId}-Sensor-schema-1",
-  "version" : 1,
-  "createdAt" : "2026-02-24T14:53:20.049Z",
-  "type" : "JSON",
-  "schemaDefinition" : "$base64.encode($schema)"
-}
