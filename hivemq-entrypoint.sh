@@ -1,18 +1,26 @@
 #!/bin/sh
 
 # Remove DISABLED flagfile
-echo "🔧 Removing DISABLED flagfile..."
+echo "🔧 Removing DISABLED flagfile for ESE..."
 rm -rf /opt/hivemq/extensions/hivemq-enterprise-security-extension/DISABLED
 echo "✅ Security extention is enabled!"
 
 
 # Remove DISABLED flagfile
-echo "🔧 Removing DISABLED flagfile..."
+echo "🔧 Removing DISABLED flagfile for prometius extentsion ..."
 rm -rf /opt/hivemq/extensions/hivemq-postgresql-extension/DISABLED
 echo "✅ Postgres extension is enabled!"
 
+
+# Remove DISABLED flagfile
+echo "🔧 Removing DISABLED flagfile for Kafka ..."
+rm -rf /opt/hivemq/extensions/hivemq-kafka-extension/DISABLED
+echo "✅ Kafka extension is enabled!"
+
+
+
 # create DISABLED flagfile
-echo "🔧 Adding DISABLED flagfile..."
+echo "🔧 Adding DISABLED flagfile for <allow all> extension ..."
 touch /opt/hivemq/extensions/hivemq-allow-all-extension/DISABLED
 echo "✅ Allow all is disabled !"
 

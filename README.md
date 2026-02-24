@@ -14,10 +14,7 @@ Make sure the promethius extention JARfile (https://github.com/hivemq/hivemq-pro
 
 This will setup a docker compose based infra with a HiveMQ Edge bridged into a HiveMQ core broker, an OPC/UA simulator, a Postgress database to store both HiveMQ security details as well as MQTT based generated data recieved from MQTT and OPC/UA datasources. The last will be visualised by a Grafana instance that also dispays HiveMQ broker metrics retrived via the Promethius extenton/database methodology.
 
-
-
 ![](assets/20260220_155445_dia.png)
-
 
 ### Access:
 
@@ -28,6 +25,7 @@ This will setup a docker compose based infra with a HiveMQ Edge bridged into a H
 6. [Grafana HiveMQ metrics](http://localhost:3000/d/8912167a-09ef-4320-9716-f27842f7b88f/hivemq-platform-prometheus?orgId=1&from=now-30m&to=now&timezone=browser&var-Prometheus=PBFA97CFB590B2093&var-intervalSeconds=30&var-Route=total&refresh=5s) (admin/admin)
 7. [Edge Gui](http://127.0.0.1:2080/app/login)
 8. [OPC-UA browser](http://127.0.0.1:2304/)
+9. [Kafka / RedPanda console](https://http://localhost:8099/overview)
 
 ### for more info see:
 
