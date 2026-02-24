@@ -44,10 +44,7 @@
         </tls-tcp-listener>
     </listeners>
 
-
-
-
-   <control-center>
+    <control-center>
         <enabled>true</enabled>
         <listeners>
             <http>
@@ -67,10 +64,6 @@
         </listeners>
     </rest-api>
 
-    <anonymous-usage-statistics>
-        <enabled>false</enabled>
-    </anonymous-usage-statistics>
-
 
     <health-api>
         <enabled>true</enabled>
@@ -78,9 +71,29 @@
         <http>
             <port>8889</port>
             <name>health-api-listener</name>
-            <bind-address>127.0.0.1</bind-address>
+            <bind-address>0.0.0.0</bind-address>
         </http>
         </listeners>
-  </health-api>
+    </health-api>
+
+
+    <anonymous-usage-statistics>
+        <enabled>false</enabled>
+    </anonymous-usage-statistics>
+
+    <data-hub>
+        <modules>
+            <registries>
+                <remote>
+                    <enabled>true</enabled>
+                    <name>HiveMQ SE Registry</name>
+                    <id>SE-git-registry</id>
+                    <url>https://raw.githubusercontent.com/hivemq/Datahub-SE-Registry/refs/heads/main/registry.json</url>
+                </remote>
+            </registries>
+        </modules>
+    </data-hub>
+
+
 
 </hivemq>

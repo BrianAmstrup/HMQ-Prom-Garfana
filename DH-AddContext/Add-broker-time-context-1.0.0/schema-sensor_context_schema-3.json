@@ -1,0 +1,8 @@
+#set( $schema = "#include('schema-sensor_context_schema-3-definition.json')")
+{
+  "id" : "${instanceId}-sensor_context_schema-3",
+  "version" : 1,
+  "createdAt" : "2026-02-24T15:15:26.239Z",
+  "type" : "JSON",
+  "schemaDefinition" : "$base64.encode($schema)"
+}

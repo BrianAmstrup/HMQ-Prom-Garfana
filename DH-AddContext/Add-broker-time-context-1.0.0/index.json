@@ -1,0 +1,32 @@
+{
+  "name" : "Add-broker-time-context",
+  "version" : "1.0.0",
+  "resources" : {
+    "files" : [ {
+      "name" : "check-add-contexx-temp",
+      "path" : "data-policy-check-add-contexx-temp.json.vm",
+      "type" : "application/vnd+hivemq.data-policy+json"
+    }, {
+      "name" : "sensor_context_schema-3",
+      "path" : "schema-sensor_context_schema-3.json",
+      "type" : "application/vnd+hivemq.schema+json"
+    }, {
+      "name" : "Sensor-schema-1",
+      "path" : "schema-Sensor-schema-1.json",
+      "type" : "application/vnd+hivemq.schema+json"
+    }, {
+      "name" : "add_time_context-2",
+      "path" : "script-add_time_context-2.json",
+      "type" : "application/vnd+hivemq.script+json"
+    } ]
+  },
+  "description" : "Add-broker-time-context",
+  "requiredSystemVersions" : [ "hivemq-enterprise/4.47.1" ],
+  "icon" : null,
+  "maintainers" : [ {
+    "name" : "kamiel",
+    "email" : null,
+    "url" : null
+  } ],
+  "availableForLicenses" : [ "light", "full" ]
+}

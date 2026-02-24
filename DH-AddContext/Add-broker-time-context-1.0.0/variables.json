@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+      "topicFilter": {
+        "type": "string",
+        "default": "sensors/#",
+        "title": "Topic filter matching",
+        "description": "The  (message) topic filter to which this instance applies"
+      }
+    }
+}

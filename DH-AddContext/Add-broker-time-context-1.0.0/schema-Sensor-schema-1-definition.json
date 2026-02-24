@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "temperature": {
+      "type": "number"
+    },
+    "isotime": {
+      "type": "string"
+    },
+    "SensorID": {
+      "type": "string"
+    },
+    "unixtime": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "temperature",
+    "SensorID"
+  ]
+}
