@@ -47,40 +47,40 @@
         </listener-pipeline>
 
 
-        <!-- secure access to the mqtt broker -->
-        <listener-pipeline listener="x509-listener">
-            <allow-all-authentication-manager/>
-                <!-- setting the user name  -->
-            <authorization-preprocessors>
-                <logging-preprocessor>
-                    <message>1-authorization pre: The content of the mqtt-clientid ESE-Variable: ${mqtt-clientid} </message>
-                    <level>warn</level>
-                    <name>com.example.logger</name>
-                </logging-preprocessor>
-                
-                <x509-preprocessor prefix="{{" postfix="}}">
-                    <x509-extractions>
-                        <x509-extraction>
-                            <x509-field>subject-common-name</x509-field>
-                            <ese-variable>authorization-role-key</ese-variable>
-                        </x509-extraction>
-                    </x509-extractions>
-                </x509-preprocessor>
-                
-                <logging-preprocessor>
-                    <message>2-authorization pre: The content of the authorization-role-key ESE-Variable: ${authorization-role-key} </message>
-                    <level>warn</level>
-                    <name>com.example.logger</name>
-                </logging-preprocessor>
-            </authorization-preprocessors>
+    <!-- secure access to the mqtt broker -->
+    <listener-pipeline listener="x509-listener">
 
-            <!-- authorize over a file -->
-            <file-authorization-manager>
-                <use-authorization-key>false</use-authorization-key>
-                <use-authorization-role-key>true</use-authorization-role-key>
-                <realm>file-realm</realm>
-            </file-authorization-manager>  
-        </listener-pipeline>
+
+        <authentication-preprocessors>
+            
+            <logging-preprocessor>
+                <message>1-authorization pre: The content of the mqtt-clientid ESE-Variable: ${mqtt-clientid} </message>
+                <level>warn</level>
+                <name>com.example.logger</name>
+            </logging-preprocessor>
+        </authentication-preprocessors>
+
+        <x509-authentication-manager>
+            <authorization-key-field>subject-common-name</authorization-key-field>
+            <authorization-role-key-field>subject-common-name</authorization-role-key-field>
+        </x509-authentication-manager>
+
+        <authentication-preprocessors>
+            <logging-preprocessor>
+                <message>2-authorization pre: The content of the authorization-role-key ESE-Variable: ${authorization-key-field} </message>
+                <level>warn</level>
+                <name>com.example.logger</name>
+            </logging-preprocessor>
+        </authentication-preprocessors>
+
+        <!-- authorize over a file -->
+        <file-authorization-manager>
+            
+            <use-authorization-key>false</use-authorization-key>
+            <use-authorization-role-key>true</use-authorization-role-key>
+            <realm>file-realm</realm>
+        </file-authorization-manager>
+    </listener-pipeline>
 
 
         <!-- secure access to the mqtt broker -->

@@ -5,3 +5,8 @@ docker compose up -d --pull always --force-recreate
 
 tip:
 https://github.com/hivemq/Orange_Workshop
+
+
+openssl x509 -in cert.pem -noout -text 
+
+openssl x509 -noout -subject -ext subjectAltName -in mqtt-client-cert.pem   

@@ -24,7 +24,7 @@
             <name>same-machine-listener</name>
         </tcp-listener>
    
-        <!-- TLS MQTT -->
+        <!-- TLS MQTT 
         <tls-tcp-listener>     
                 <port>8883</port>
                 <bind-address>0.0.0.0</bind-address>
@@ -42,6 +42,32 @@
                     </protocols>
                 </tls>
         </tls-tcp-listener>
+-->
+        
+  <!-- mTLS MQTT X.509 -->
+        <tls-tcp-listener>     
+                <port>9999</port>
+                <bind-address>0.0.0.0</bind-address>
+                <name>x509-listener</name>
+                <tls>
+                    <keystore>
+                        <path>./conf/hivemq.jks</path>
+                        <password>changeit</password>
+                        <private-key-password>changeit</private-key-password>
+                    </keystore>
+                    <truststore>
+                        <path>./conf/hivemq-trust-store.jks</path>
+                        <password>changeme</password>
+                    </truststore>
+                    <protocols>
+                        <protocol>TLSv1.2</protocol>
+                        <protocol>TLSv1.3</protocol>
+                    </protocols>
+                </tls>
+        </tls-tcp-listener>
+
+
+        
     </listeners>
 
     <control-center>

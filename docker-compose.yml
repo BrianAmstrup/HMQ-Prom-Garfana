@@ -42,6 +42,7 @@ services:
       - "8080:8080"    # HiveMQ Control Center
       - "9399:9399"    # Prometheus metrics (extension)
       - "8888:8888"    # HiveMQ API
+      - "9999:9999"    # HiveMQ x509 testport
     volumes:
       # - ./hivemq-data:/opt/hivemq/data
       - ./Hive-config:/opt/hivemq/conf

@@ -99,3 +99,7 @@ mqtt sub -t "#"  -u superuser -pw admin -p 1883 -J | jq
 monitor edge on MQTT:
 mqtt sub -t "#"   -p 2883 -J  | jq
 
+mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin    
+    
+mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin \
+--cert mqtt-client-cert.pem --key mqtt-client-key.pem  
