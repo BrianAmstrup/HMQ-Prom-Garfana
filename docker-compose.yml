@@ -146,7 +146,28 @@ services:
              python3 /app/genSP.py"
     volumes:
       - ./SparkPlug-sim:/app
+    restart: unless-stopped
+
+  MQTT_monitor:
+    image: python:3.12-slim
+    container_name: MQTT_monitor.py
+    depends_on:
+      - hivemq
+    environment:
+      PYTHONUNBUFFERED: 1
+      MQTT_BROKER: "hivemq"
+      MQTT_PORT: 1883
+      MQTT_USER: "superuser"
+      MQTT_PASS: "admin"
+    ports:
+      - "5000:5000"
+    command: >
+      sh -c "pip install --upgrade pip && pip install -r /app/requirements.txt --root-user-action=ignore &&
+             python3 /app/mqtt_monitor.py"
+    volumes:
+      - ./MQTT_monitor:/app
     restart: no
+
 
 
   OPCUA-simulator:

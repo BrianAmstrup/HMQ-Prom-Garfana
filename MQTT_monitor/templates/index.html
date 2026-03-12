@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MQTT Web Explorer</title>
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<style>
+body{background:#1e1e1e;color:#ddd;font-family:monospace;display:flex;height:100vh;margin:0}
+#tree{width:30%;border-right:1px solid #333;overflow:auto;padding:10px}
+#viewer{flex:1;overflow:auto;padding:20px}
+.tree-node{cursor:pointer;padding:3px}
+.tree-node:hover{background:#333}
+.children{margin-left:15px}
+.topic{margin-bottom:25px}
+pre{background:#111;padding:10px;border-radius:5px}
+.rate{color:#6ab0ff;font-size:12px}
+#publish{position:fixed;bottom:10px;right:10px;background:#222;padding:15px;border:1px solid #444;width:300px}
+input,textarea{background:#111;color:#fff;border:1px solid #444;padding:5px;width:100%;margin-bottom:5px}
+button{background:#2c7be5;border:none;color:white;padding:8px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div id="tree"></div>
+<div id="viewer">
+<h2>MQTT Messages</h2>
+<div id="topics"></div>
+</div>
+
+<div id="publish">
+<b>Publish MQTT</b>
+<input id="pubtopic" placeholder="topic">
+<textarea id="pubpayload" rows="4" placeholder="payload"></textarea>
+<button onclick="publish()">Send</button>
+</div>
+
+<script>
+const socket = io()
+const topics = {}
+const expandedNodes = {}
+const nodeMap = {}
+
+socket.on("mqtt_update", (data)=>{
+    topics[data.topic] = data
+    renderTopics()
+    addTopicToTree(data.topic)
+})
+
+socket.on("topic_tree", (tree)=>{
+    if(Object.keys(nodeMap).length===0){
+        renderTree(tree)
+    } else {
+        for(let topic in topics){
+            addTopicToTree(topic)
+        }
+    }
+})
+
+function createNode(name,path,expanded=true){
+    let container=document.createElement("div")
+    let node=document.createElement("div")
+    node.className="tree-node"
+    node.innerText=name
+    container.appendChild(node)
+    let childContainer=document.createElement("div")
+    childContainer.className="children"
+    container.appendChild(childContainer)
+    if(expandedNodes[path]===undefined) expandedNodes[path]=expanded
+    childContainer.style.display = expandedNodes[path]?"block":"none"
+    node.onclick=()=>{
+        expandedNodes[path]=!expandedNodes[path]
+        childContainer.style.display=expandedNodes[path]?"block":"none"
+        scrollToTopic(path)
+    }
+    nodeMap[path]={container,childContainer}
+    return container
+}
+
+function renderTree(tree,parentPath=""){
+    const container=document.getElementById("tree")
+    container.innerHTML=""
+    for(let key in tree){
+        let path=parentPath?parentPath+"/"+key:key
+        let node=createNode(key,path)
+        container.appendChild(node)
+        buildChildren(tree[key],path,node.querySelector(".children"))
+    }
+}
+
+function buildChildren(tree,path,parentContainer){
+    for(let key in tree){
+        let childPath=path+"/"+key
+        let childNode=createNode(key,childPath)
+        parentContainer.appendChild(childNode)
+        buildChildren(tree[key],childPath,childNode.querySelector(".children"))
+    }
+}
+
+function addTopicToTree(topic){
+    const parts=topic.split("/")
+    let path=""
+    let parentContainer=document.getElementById("tree")
+    for(let i=0;i<parts.length;i++){
+        path=path?path+"/"+parts[i]:parts[i]
+        if(!nodeMap[path]){
+            let node=createNode(parts[i],path,true)
+            parentContainer.appendChild(node)
+            parentContainer=node.querySelector(".children")
+        } else {
+            parentContainer=nodeMap[path].childContainer
+        }
+    }
+}
+
+function scrollToTopic(topic){
+    let el=document.getElementById("topic_"+topic.replaceAll("/","_"))
+    if(el) el.scrollIntoView()
+}
+
+function renderTopics(){
+    const container=document.getElementById("topics")
+    container.innerHTML=""
+    Object.keys(topics).sort().forEach(topic=>{
+        let data=topics[topic]
+        let div=document.createElement("div")
+        div.className="topic"
+        div.id="topic_"+topic.replaceAll("/","_")
+        let title=document.createElement("h3")
+        title.innerText=topic
+        let rate=document.createElement("div")
+        rate.className="rate"
+        rate.innerText="messages: "+data.rate
+        div.appendChild(title)
+        div.appendChild(rate)
+        data.history.slice().reverse().forEach(msg=>{
+            let pre=document.createElement("pre")
+            let code=document.createElement("code")
+            code.className="json"
+            code.textContent=JSON.stringify(msg,null,2)
+            pre.appendChild(code)
+            div.appendChild(pre)
+        })
+        container.appendChild(div)
+    })
+    document.querySelectorAll("pre code").forEach(block=>{
+        hljs.highlightElement(block)
+    })
+}
+
+function publish(){
+    let topic=document.getElementById("pubtopic").value
+    let payload=document.getElementById("pubpayload").value
+    socket.emit("publish",{topic:topic,payload:payload})
+}
+</script>
+</body>
+</html>
