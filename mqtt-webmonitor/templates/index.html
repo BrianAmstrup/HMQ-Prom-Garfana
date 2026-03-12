@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MQTT Monitor</title>
+
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+
+<style>
+body {
+    font-family: monospace;
+    background: #1e1e1e;
+    color: #eee;
+}
+
+.topic {
+    border: 1px solid #444;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+pre {
+    background: #111;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>MQTT Topic Monitor</h2>
+<div id="topics"></div>
+
+<script>
+const socket = io();
+const topics = {};
+
+socket.on("mqtt_update", (data) => {
+
+    topics[data.topic] = data.payload;
+
+    render();
+});
+
+function render() {
+
+    const container = document.getElementById("topics");
+    container.innerHTML = "";
+
+    Object.keys(topics).sort().forEach(topic => {
+
+        const div = document.createElement("div");
+        div.className = "topic";
+
+        const title = document.createElement("h3");
+        title.innerText = topic;
+
+        const pre = document.createElement("pre");
+        pre.innerText = JSON.stringify(topics[topic], null, 2);
+
+        div.appendChild(title);
+        div.appendChild(pre);
+
+        container.appendChild(div);
+    });
+}
+</script>
+
+</body>
+</html>
