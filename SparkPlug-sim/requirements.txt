@@ -1,0 +1,8 @@
+amqp==5.3.1
+configparser==5.3.0
+lockfile==0.12.2
+paho-mqtt==2.1.0
+protobuf==4.24.4
+sparkplug==1.22.0
+typing-extensions==4.7.1
+vine==5.1.0

@@ -134,6 +134,21 @@ services:
     restart: unless-stopped
 
 
+  Sparkplug-simulator:
+    image: python:3.12-slim
+    container_name: sparkplug-simulator
+    depends_on:
+      - hivemq
+    environment:
+      PYTHONUNBUFFERED: 1
+    command: >
+      sh -c "pip install --upgrade pip && pip install -r /app/requirements.txt --root-user-action=ignore &&
+             python3 /app/genSP.py"
+    volumes:
+      - ./SparkPlug-sim:/app
+    restart: unless-stopped
+
+
   OPCUA-simulator:
     image: python:3.12-slim
     container_name: opcua-simulator
