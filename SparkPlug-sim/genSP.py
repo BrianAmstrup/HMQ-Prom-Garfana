@@ -1,16 +1,25 @@
 import time
 import random
+import os
 import paho.mqtt.client as mqtt
 import sparkplug_b_pb2
 
-BROKER = "hivemq"
-PORT = 1883
 
 GROUP_ID = "factory1"
 EDGE_NODE_ID = "edge01"
 
 TOPIC_NBIRTH = f"spBv1.0/{GROUP_ID}/NBIRTH/{EDGE_NODE_ID}"
 TOPIC_NDATA = f"spBv1.0/{GROUP_ID}/NDATA/{EDGE_NODE_ID}"
+
+host = os.getenv("MQTT_HOST", "hivemq")
+port = int(os.getenv("MQTT_PORT", "1883"))
+# topic = os.getenv("MQTT_TOPIC", "sensors/temperature")
+interval = int(os.getenv("INTERVAL", "5"))
+username = os.getenv("MQTT_USER", "SPsim")       # MQTT username
+password = os.getenv("MQTT_PASSWORD", "password")   # MQTT password
+client_id = "Temp-sim"
+
+
 
 seq = 0
 
@@ -76,18 +85,17 @@ def on_connect(client, userdata, flags, rc):
 
 def main():
 
-    client = mqtt.Client()
-
-    client.on_connect = on_connect
-
-    client.connect(BROKER, PORT, 60)
-
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id)
+    # client.on_connect = on_connect
+    client.username_pw_set(username=username, password=password)
+    client.connect(host, port, 60)
     client.loop_start()
+
+    publish_nbirth(client)
 
     while True:
         publish_ndata(client)
-        time.sleep(5)
-
+        time.sleep(interval)
 
 if __name__ == "__main__":
     main()

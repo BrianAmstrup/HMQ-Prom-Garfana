@@ -13,7 +13,7 @@ topic = os.getenv("MQTT_TOPIC", "sensors/temperature")
 interval = int(os.getenv("INTERVAL", "5"))
 username = os.getenv("MQTT_USER", "sensor")       # MQTT username
 password = os.getenv("MQTT_PASSWORD", "password")   # MQTT password
-client_id = "sim"
+client_id = "Temp-sim"
 
 # ----------------------------
 # MQTT Client Setup

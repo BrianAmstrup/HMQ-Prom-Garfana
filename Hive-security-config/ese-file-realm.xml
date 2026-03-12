@@ -31,6 +31,19 @@
                 </permissions>
             </user>
 
+
+            <user>
+                <name>SPsim</name>
+                <password>password</password>
+                <permissions>
+                    <permission>
+                        <topic>spBv1.0/#</topic>
+                        <qos>ALL</qos>
+                        <activity>PUBLISH</activity>
+                    </permission>
+                </permissions>
+            </user>
+
             <user>
                 <name>edge-bridge</name>
                 <password>edge-bridge</password>
