@@ -26,6 +26,7 @@ This will setup a docker compose based infra with a HiveMQ Edge bridged into a H
 7. [Edge Gui](http://127.0.0.1:2080/app/login)
 8. [OPC-UA browser](http://127.0.0.1:2304/)
 9. [Kafka / RedPanda console](http://localhost:8099/overview)
+10. [MQTT web explorer](http://localhost:5000/)
 
 ### for more info see:
 
