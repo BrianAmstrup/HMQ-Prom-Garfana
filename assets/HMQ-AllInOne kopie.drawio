@@ -1,0 +1,121 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.6">
+  <diagram name="Pagina-1" id="_eEXnFrQGM6qZHYUwrQ2">
+    <mxGraphModel dx="1662" dy="1031" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="prnqoG7cd_BOEyumOLVA-30" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="215" width="215" x="880" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD966;" value="Edge Gateway" vertex="1">
+          <mxGeometry height="200" width="110" x="230" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-6" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="prnqoG7cd_BOEyumOLVA-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="OPC/UA server simulator" vertex="1">
+          <mxGeometry height="80" width="80" x="70" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-3" parent="1" style="triangle;whiteSpace=wrap;html=1;" value="SIMulator" vertex="1">
+          <mxGeometry height="80" width="60" x="210" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-5" parent="1" style="triangle;whiteSpace=wrap;html=1;" value="OPC/UA" vertex="1">
+          <mxGeometry height="80" width="60" x="210" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD966;" value="Core broker" vertex="1">
+          <mxGeometry height="400" width="110" x="475" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-9" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="50" width="30" x="595" y="501" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-10" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Prometius ext" vertex="1">
+          <mxGeometry height="80" width="80" x="570" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-11" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Security ext" vertex="1">
+          <mxGeometry height="80" width="80" x="570" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-12" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Postgres ext" vertex="1">
+          <mxGeometry height="80" width="80" x="570" y="391" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-15" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="prnqoG7cd_BOEyumOLVA-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-14" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="50" width="30" x="595" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-16" parent="1" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.general.graph" value="Grafana" vertex="1">
+          <mxGeometry height="160" width="160" x="910" y="222" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-17" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="Prometius&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="60" x="850" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="Postgres" vertex="1">
+          <mxGeometry height="60" width="60" x="850" y="312" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-29" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="prnqoG7cd_BOEyumOLVA-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="170" />
+              <mxPoint x="390" y="346" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-22" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="Bridge" vertex="1">
+          <mxGeometry height="50" width="50" x="310" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-28" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="prnqoG7cd_BOEyumOLVA-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="440" />
+              <mxPoint x="400" y="402" />
+            </Array>
+            <mxPoint x="390" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-23" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="MQTT temperature sensor simulator" vertex="1">
+          <mxGeometry height="80" width="80" x="218" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-25" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="1883 listener / Secure" vertex="1">
+          <mxGeometry height="80" width="80" x="420" y="334" as="geometry" />
+        </mxCell>
+        <mxCell id="prnqoG7cd_BOEyumOLVA-26" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="8883 TLS listener / Secure" vertex="1">
+          <mxGeometry height="80" width="80" x="420" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="b8_nLO8l6Ol2vJ7I-01a-1" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="50" width="30" x="595" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="b8_nLO8l6Ol2vJ7I-01a-4" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="prnqoG7cd_BOEyumOLVA-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b8_nLO8l6Ol2vJ7I-01a-7" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="prnqoG7cd_BOEyumOLVA-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b8_nLO8l6Ol2vJ7I-01a-8" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="b8_nLO8l6Ol2vJ7I-01a-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b8_nLO8l6Ol2vJ7I-01a-9" edge="1" parent="1" source="prnqoG7cd_BOEyumOLVA-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="b8_nLO8l6Ol2vJ7I-01a-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b8_nLO8l6Ol2vJ7I-01a-13" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" value="" vertex="1">
+          <mxGeometry height="50" width="40" x="635" y="311" as="geometry" />
+        </mxCell>
+        <mxCell id="b8_nLO8l6Ol2vJ7I-01a-15" edge="1" parent="1" source="b8_nLO8l6Ol2vJ7I-01a-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.775;entryY=0.675;entryDx=0;entryDy=0;entryPerimeter=0;" target="prnqoG7cd_BOEyumOLVA-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5O-4u12yjm9WPzWaQzTo-2" edge="1" parent="1" source="5O-4u12yjm9WPzWaQzTo-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="prnqoG7cd_BOEyumOLVA-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="342" />
+              <mxPoint x="370" y="374" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5O-4u12yjm9WPzWaQzTo-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="Sparkplug-B simulator" vertex="1">
+          <mxGeometry height="80" width="80" x="218" y="302" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
