@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 
 import paho.mqtt.client as mqtt
 
-host = os.getenv("MQTT_HOST", "localhost")
+host = os.getenv("MQTT_HOST", "hivemq")
 port = int(os.getenv("MQTT_PORT", "1883"))
 topic = os.getenv("MQTT_TOPIC", "sensors/temperature")
 interval = int(os.getenv("INTERVAL", "5"))
