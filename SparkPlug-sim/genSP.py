@@ -17,7 +17,7 @@ port = int(os.getenv("MQTT_PORT", "1883"))
 interval = int(os.getenv("INTERVAL", "5"))
 username = os.getenv("MQTT_USER", "SPsim")       # MQTT username
 password = os.getenv("MQTT_PASSWORD", "password")   # MQTT password
-client_id = "Temp-sim"
+client_id = "SP-b-simulator"
 
 
 
