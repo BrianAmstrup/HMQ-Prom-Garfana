@@ -10,3 +10,13 @@ https://github.com/hivemq/Orange_Workshop
 openssl x509 -in cert.pem -noout -text 
 
 openssl x509 -noout -subject -ext subjectAltName -in mqtt-client-cert.pem   
+
+
+curl -X GET --location 'http://127.0.0.1:8888/api/v1/mqtt/clients'   | jq
+
+
+curl -X GET --location 'curl http://127.0.0.1:8080/api/v1/clients'   | jq
+
+
+
+curl http://localhost:9399/metrics/com_hivemq_cluster_internal_transport_num_bytes_sent
