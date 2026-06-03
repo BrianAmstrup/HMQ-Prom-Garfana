@@ -91,12 +91,14 @@ test all:
 
 ### Datahub
 
-Add  "BrokerIsoTime": 1780469935,
-    "BrokerUTCTime": "2026-06-03T06:58:55.574Z"
-  
-by importing module ./DH-AddContext/*.modulele file (CC v1 only!)
+Add  "BrokerIsoTime" and "BrokerUTCTime" by importing module DH-AddContext/Add_time_context-1.0.0.module file (CC v1 only!)
 
-===== scratch zone =====
+### Rest API
+
+```curl -X GET "http://127.0.0.1:8888/api/v1/mqtt/clients" -H "accept: application/json" | jq```
+
+
+## ===== scratch zone =====
 
 send message to edge broker:
 mqtt pub -h 127.0.0.1 -p 2883 -t test -m kamielisgek123
