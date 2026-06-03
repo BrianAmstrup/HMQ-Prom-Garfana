@@ -112,8 +112,8 @@ curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-
 
 #### Pipeline Module deployment and enablement
 
-Read the (zipped) moidule file, encode it to base64 (removing line breaks) and pipe it into jq to build the final API payload 
-module DH-AddContext/Add_time_context-1.0.0.module adds  "BrokerIsoTime" and "BrokerUTCTime" JSON files to the payload
+Read the (zipped) moidule file, encode it to base64 (removing line breaks) and pipe it into jq to build the final API payload.  
+Module ```DH-AddContext/Add_time_context-1.0.0.module``` adds  "BrokerIsoTime" and "BrokerUTCTime" JSON files to the payload
 ```
 jq -n \
   --arg mod "$(base64 -i Add_time_context-1.0.0.module)" \
