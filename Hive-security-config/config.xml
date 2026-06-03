@@ -35,7 +35,7 @@
 
         
         <!-- secure access to the mqtt broker -->
-        <listener-pipeline listener="open-world-listener">
+        <listener-pipeline listener="filebased-sec-listener">
             <!-- authenticate over a file -->
             <file-authentication-manager>
                 <realm>file-realm</realm>

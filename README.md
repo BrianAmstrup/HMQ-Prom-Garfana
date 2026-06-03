@@ -89,6 +89,13 @@ test all:
 
 ✅ Successfully published to 'sensors/temperature': {"temperature": 29.48, "isotime": "2026-02-16T16:59:07.164Z", "SensorID": "TempSimulator", "unixtime": 1771261147164}
 
+### Datahub
+
+Add  "BrokerIsoTime": 1780469935,
+    "BrokerUTCTime": "2026-06-03T06:58:55.574Z"
+  
+by importing module ./DH-AddContext/*.modulele file (CC v1 only!)
+
 ===== scratch zone =====
 
 send message to edge broker:

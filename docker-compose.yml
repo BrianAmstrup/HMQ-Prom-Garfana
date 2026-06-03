@@ -65,8 +65,8 @@ services:
 
 
   hivemqedge:
-    image: hivemq/hivemq-edge:2026.3
-    #image: hivemq/hivemq-edge:latest
+    #image: hivemq/hivemq-edge:2026.3
+    image: hivemq/hivemq-edge:latest
 
     container_name: hivemq-edge
     ports:
