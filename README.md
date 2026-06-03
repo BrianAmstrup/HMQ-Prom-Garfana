@@ -94,9 +94,9 @@ test all:
 ```curl -X GET "http://127.0.0.1:8888/api/v1/mqtt/clients" -H "accept: application/json" | jq```
 
 
-### Datahub
+### Datahub over the API
 
-Add  "BrokerIsoTime" and "BrokerUTCTime" by importing module DH-AddContext/Add_time_context-1.0.0.module file (CC v1 or API only!)
+#### List and eb/disable modules (CC v1 or API only!) :
 
 ```
 curl -X GET "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" \
@@ -113,7 +113,7 @@ curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-
 #### Pipeline Module deployment and enablement
 
 Read the (zipped) moidule file, encode it to base64 (removing line breaks) and pipe it into jq to build the final API payload 
-
+module DH-AddContext/Add_time_context-1.0.0.module adds  "BrokerIsoTime" and "BrokerUTCTime" JSON files to the payload
 ```
 jq -n \
   --arg mod "$(base64 -i Add_time_context-1.0.0.module)" \
@@ -141,26 +141,3 @@ mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw 
 mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin \
 --cert mqtt-client-cert.pem --key mqtt-client-key.pem  
 
-
-
-curl -X GET "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" -H "accept: application/json" | jq
-
-curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-blBUr" \
-     -H "Content-Type: application/json" \
-     -H "accept: application/json" \
-     -d '{
-       "enabled": false
-     }'
-
-
-
-
-# Read the file, encode it to base64 (removing line breaks), and pipe it into jq to build the final API payload
-jq -n \
-  --arg mod "$(base64 -i Add_time_context-1.0.0.module)" \
-  --argjson cfg "$(cat config.json)" \
-  '{module: $mod, moduleConfiguration: $cfg}' | \
-curl -X POST "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" \
-     -H "Content-Type: application/json" \
-     -H "accept: application/json" \
-     -d @-
