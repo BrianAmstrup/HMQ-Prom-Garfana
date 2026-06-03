@@ -89,14 +89,25 @@ test all:
 
 ✅ Successfully published to 'sensors/temperature': {"temperature": 29.48, "isotime": "2026-02-16T16:59:07.164Z", "SensorID": "TempSimulator", "unixtime": 1771261147164}
 
-### Datahub
-
-Add  "BrokerIsoTime" and "BrokerUTCTime" by importing module DH-AddContext/Add_time_context-1.0.0.module file (CC v1 only!)
-
 ### Rest API
 
 ```curl -X GET "http://127.0.0.1:8888/api/v1/mqtt/clients" -H "accept: application/json" | jq```
 
+
+### Datahub
+
+Add  "BrokerIsoTime" and "BrokerUTCTime" by importing module DH-AddContext/Add_time_context-1.0.0.module file (CC v1 only!)
+
+```
+curl -X GET "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" -H "accept: application/json" | jq
+
+curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-blBUr" \
+     -H "Content-Type: application/json" \
+     -H "accept: application/json" \
+     -d '{
+       "enabled": false
+     }'
+```     
 
 ## ===== scratch zone =====
 
@@ -113,3 +124,14 @@ mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw 
     
 mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin \
 --cert mqtt-client-cert.pem --key mqtt-client-key.pem  
+
+
+
+curl -X GET "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" -H "accept: application/json" | jq
+
+curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-blBUr" \
+     -H "Content-Type: application/json" \
+     -H "accept: application/json" \
+     -d '{
+       "enabled": false
+     }'
