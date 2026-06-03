@@ -110,12 +110,12 @@ curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-
      }'
 ```     
 
-# Pipeline Module deployment
+#### Pipeline Module deployment and enablement
 
-Read the file, encode it to base64 (removing line breaks), and pipe it into jq to build the final API payload 
+Read the (zipped) moidule file, encode it to base64 (removing line breaks) and pipe it into jq to build the final API payload 
 
 ```
-q -n \                                                                                                                                               10:20:41
+jq -n \
   --arg mod "$(base64 -i Add_time_context-1.0.0.module)" \
   --argjson cfg "$(cat config.json)" \
   '{module: $mod, moduleConfiguration: $cfg}' | \
