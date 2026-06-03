@@ -96,10 +96,11 @@ test all:
 
 ### Datahub
 
-Add  "BrokerIsoTime" and "BrokerUTCTime" by importing module DH-AddContext/Add_time_context-1.0.0.module file (CC v1 only!)
+Add  "BrokerIsoTime" and "BrokerUTCTime" by importing module DH-AddContext/Add_time_context-1.0.0.module file (CC v1 or API only!)
 
 ```
-curl -X GET "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" -H "accept: application/json" | jq
+curl -X GET "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" \
+-H "accept: application/json" | jq
 
 curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-blBUr" \
      -H "Content-Type: application/json" \
@@ -108,6 +109,21 @@ curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-
        "enabled": false
      }'
 ```     
+
+# Pipeline Module deployment
+
+Read the file, encode it to base64 (removing line breaks), and pipe it into jq to build the final API payload 
+
+```
+q -n \                                                                                                                                               10:20:41
+  --arg mod "$(base64 -i Add_time_context-1.0.0.module)" \
+  --argjson cfg "$(cat config.json)" \
+  '{module: $mod, moduleConfiguration: $cfg}' | \
+curl -X POST "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" \
+     -H "Content-Type: application/json" \
+     -H "accept: application/json" \
+     -d @-
+```
 
 ## ===== scratch zone =====
 
@@ -135,3 +151,16 @@ curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-
      -d '{
        "enabled": false
      }'
+
+
+
+
+# Read the file, encode it to base64 (removing line breaks), and pipe it into jq to build the final API payload
+jq -n \
+  --arg mod "$(base64 -i Add_time_context-1.0.0.module)" \
+  --argjson cfg "$(cat config.json)" \
+  '{module: $mod, moduleConfiguration: $cfg}' | \
+curl -X POST "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" \
+     -H "Content-Type: application/json" \
+     -H "accept: application/json" \
+     -d @-
