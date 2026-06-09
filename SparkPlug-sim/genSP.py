@@ -5,8 +5,8 @@ import paho.mqtt.client as mqtt
 import sparkplug_b_pb2
 
 
-GROUP_ID = "factory1"
-EDGE_NODE_ID = "edge01"
+GROUP_ID = "spB-factory"
+EDGE_NODE_ID = "spB-edge01"
 
 TOPIC_NBIRTH = f"spBv1.0/{GROUP_ID}/NBIRTH/{EDGE_NODE_ID}"
 TOPIC_NDATA = f"spBv1.0/{GROUP_ID}/NDATA/{EDGE_NODE_ID}"

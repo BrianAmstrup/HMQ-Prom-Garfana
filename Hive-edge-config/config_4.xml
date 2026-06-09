@@ -289,7 +289,19 @@
             <southboundMappings/>
         </protocol-adapter>
     </protocol-adapters>
-    <data-combiners/>
+    <data-combiners>
+        <data-combiner>
+            <id>23debc42-8211-4908-85ed-680c8f8d8655</id>
+            <name>&lt; unnamed combiner &gt;</name>
+            <entity-references>
+                <entity-reference>
+                    <type>BRIDGE</type>
+                    <id>Edge2core</id>
+                </entity-reference>
+            </entity-references>
+            <data-combinings/>
+        </data-combiner>
+    </data-combiners>
     <asset-mappers/>
     <pulse>
         <managed-assets/>

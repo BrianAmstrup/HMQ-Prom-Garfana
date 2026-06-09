@@ -101,45 +101,7 @@
     <persistence>
         <mode>in-memory</mode>
     </persistence>
-    <mqtt-bridges>
-        <mqtt-bridge>
-            <id>Edge2core</id>
-            <remote-broker>
-                <port>1883</port>
-                <host>hivemq</host>
-                <mqtt>
-                    <client-id>edge-bridge</client-id>
-                    <clean-start>true</clean-start>
-                    <session-expiry>3600</session-expiry>
-                    <keep-alive>60</keep-alive>
-                </mqtt>
-                <authentication>
-                    <mqtt-simple-authentication>
-                        <username>edge-bridge</username>
-                        <password>edge-bridge</password>
-                    </mqtt-simple-authentication>
-                </authentication>
-            </remote-broker>
-            <remote-subscriptions/>
-            <forwarded-topics>
-                <forwarded-topic>
-                    <filters>
-                        <mqtt-topic-filter>#</mqtt-topic-filter>
-                    </filters>
-                    <max-qos>0</max-qos>
-                    <preserve-retain>false</preserve-retain>
-                    <destination>edge/Amsterdam/{#}</destination>
-                    <custom-user-properties/>
-                    <excludes/>
-                </forwarded-topic>
-            </forwarded-topics>
-            <loop-prevention>
-                <enabled>true</enabled>
-                <hop-count-limit>1</hop-count-limit>
-            </loop-prevention>
-            <persist>true</persist>
-        </mqtt-bridge>
-    </mqtt-bridges>
+    <mqtt-bridges/>
     <admin-api>
         <enabled>true</enabled>
         <listeners>
@@ -289,7 +251,19 @@
             <southboundMappings/>
         </protocol-adapter>
     </protocol-adapters>
-    <data-combiners/>
+    <data-combiners>
+        <data-combiner>
+            <id>23debc42-8211-4908-85ed-680c8f8d8655</id>
+            <name>&lt; unnamed combiner &gt;</name>
+            <entity-references>
+                <entity-reference>
+                    <type>BRIDGE</type>
+                    <id>Edge2core</id>
+                </entity-reference>
+            </entity-references>
+            <data-combinings/>
+        </data-combiner>
+    </data-combiners>
     <asset-mappers/>
     <pulse>
         <managed-assets/>

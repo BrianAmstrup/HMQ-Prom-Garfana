@@ -108,7 +108,7 @@
                 <port>1883</port>
                 <host>hivemq</host>
                 <mqtt>
-                    <client-id>edge-bridge</client-id>
+                    <client-id>edge</client-id>
                     <clean-start>true</clean-start>
                     <session-expiry>3600</session-expiry>
                     <keep-alive>60</keep-alive>
@@ -207,7 +207,6 @@
                     <messageHandlingOptions>MQTTMessagePerTag</messageHandlingOptions>
                     <includeTagNames>false</includeTagNames>
                     <includeTimestamp>true</includeTimestamp>
-                    <includeMetadata>false</includeMetadata>
                     <mqttUserProperties/>
                     <messageExpiryInterval>9223372036854775807</messageExpiryInterval>
                 </northboundMapping>
@@ -267,10 +266,8 @@
                     <tagName>equip2_temp</tagName>
                     <topic>Equipment-2/Temperature</topic>
                     <maxQos>0</maxQos>
-                    <messageHandlingOptions>MQTTMessagePerTag</messageHandlingOptions>
                     <includeTagNames>true</includeTagNames>
                     <includeTimestamp>true</includeTimestamp>
-                    <includeMetadata>false</includeMetadata>
                     <mqttUserProperties/>
                     <messageExpiryInterval>9007199254740991</messageExpiryInterval>
                 </northboundMapping>
@@ -278,10 +275,8 @@
                     <tagName>equi4_volt</tagName>
                     <topic>Equipment-4/Voltage</topic>
                     <maxQos>0</maxQos>
-                    <messageHandlingOptions>MQTTMessagePerTag</messageHandlingOptions>
                     <includeTagNames>false</includeTagNames>
                     <includeTimestamp>true</includeTimestamp>
-                    <includeMetadata>false</includeMetadata>
                     <mqttUserProperties/>
                     <messageExpiryInterval>9007199254740991</messageExpiryInterval>
                 </northboundMapping>

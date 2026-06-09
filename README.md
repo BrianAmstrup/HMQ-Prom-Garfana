@@ -93,7 +93,6 @@ test all:
 
 ```curl -X GET "http://127.0.0.1:8888/api/v1/mqtt/clients" -H "accept: application/json" | jq```
 
-
 ### Datahub over the API
 
 #### List and eb/disable modules (CC v1 or API only!) :
@@ -108,12 +107,14 @@ curl -X PATCH "http://127.0.0.1:8888/api/v1/data-hub/modules/instances/instance-
      -d '{
        "enabled": false
      }'
-```     
+```
 
 #### Pipeline Module deployment and enablement
 
-Read the (zipped) moidule file, encode it to base64 (removing line breaks) and pipe it into jq to build the final API payload.  
+First move into the ```DH-AddContext``` directory. Thgan execute the command below. This will read the (zipped) moidule file, encode it to base64 (removing line breaks) and pipe it into jq to build the final API payload.
+
 Module ```DH-AddContext/Add_time_context-1.0.0.module``` adds  "BrokerIsoTime" and "BrokerUTCTime"  -fields to a JSON based payload.
+
 ```
 jq -n \
   --arg mod "$(base64 -i Add_time_context-1.0.0.module)" \
@@ -124,6 +125,12 @@ curl -X POST "http://127.0.0.1:8888/api/v1/data-hub/modules/instances" \
      -H "accept: application/json" \
      -d @-
 ```
+
+#### SP/B decoding
+
+raw ingestion topic   : ```spBv1.0/factory1/NDATA/edge01```
+after DH decoding     : ```spB-factory/spB-edge01/undefined```
+
 
 ## ===== scratch zone =====
 
@@ -136,8 +143,8 @@ mqtt sub -t "#"  -u superuser -pw admin -p 1883 -J | jq
 monitor edge on MQTT:
 mqtt sub -t "#"   -p 2883 -J  | jq
 
-mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin    
-    
-mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin \
---cert mqtt-client-cert.pem --key mqtt-client-key.pem  
+mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin
+
+mqtt test -h localhost -p 9999  --secure  --cafile hivemq.crt  -u superuser -pw admin 
+--cert mqtt-client-cert.pem --key mqtt-client-key.pem
 
